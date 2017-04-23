@@ -7,7 +7,7 @@ package org.foi.nwtis.mdomladov.zadaca_1;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.foi.nwtis.dkermek.konfiguracije.Konfiguracija;
+import org.foi.nwtis.mdomladov.konfiguracije.Konfiguracija;
 
 /**
  * Adresna dretva radi u pravilnim ciklusima prema podacima iz postavki. 
