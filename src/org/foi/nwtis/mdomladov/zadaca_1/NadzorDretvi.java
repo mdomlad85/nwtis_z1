@@ -2,7 +2,7 @@ package org.foi.nwtis.mdomladov.zadaca_1;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.foi.nwtis.mdomladov.konfiguracije.Konfiguracija;
+import org.foi.nwtis.dkermek.konfiguracije.Konfiguracija;
 import static java.lang.Thread.sleep;
 
 /**
@@ -22,7 +22,7 @@ class NadzorDretvi extends KonfDretva{
     public NadzorDretvi(Konfiguracija konf) {
         super(konf);
         super.setName(NaziviDretvi.NADZOR_DRETVI);
-         trajanjeSpavanja = Integer.parseInt(konf.dajPostavku(KonfiguracijskiParametri.INTERVAL_NADZORNE_DRETVE));
+         interval = Integer.parseInt(konf.dajPostavku(KonfiguracijskiParametri.INTERVAL_NADZORNE_DRETVE));
          maxTrajanjeRadneDretve = Integer.parseInt(konf.dajPostavku(KonfiguracijskiParametri.MAX_VRIJEME_RADNE_DRETVE));
     }
 
@@ -30,7 +30,6 @@ class NadzorDretvi extends KonfDretva{
     public void run() {
         super.run();
        
-        //TODO provjeriti ime
         while(true){            
             System.out.println(this.getClass());
             

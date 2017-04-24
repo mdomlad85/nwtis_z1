@@ -5,7 +5,7 @@ import java.io.OutputStream;
 import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.foi.nwtis.mdomladov.konfiguracije.Konfiguracija;
+import org.foi.nwtis.dkermek.konfiguracije.Konfiguracija;
 
 /**
  * Kreira se konstruktor klase u koji se prenose podaci konfiguracije. 

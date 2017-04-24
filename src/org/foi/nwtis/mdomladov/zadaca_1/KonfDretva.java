@@ -17,7 +17,7 @@
 
 package org.foi.nwtis.mdomladov.zadaca_1;
 
-import org.foi.nwtis.mdomladov.konfiguracije.Konfiguracija;
+import org.foi.nwtis.dkermek.konfiguracije.Konfiguracija;
 
 /**
  * Roditeljska klasa za dretve
@@ -27,6 +27,7 @@ import org.foi.nwtis.mdomladov.konfiguracije.Konfiguracija;
  */
 public abstract class KonfDretva extends Thread implements Konstante{
     
+    
     protected Konfiguracija konf;
     
     /**
@@ -34,8 +35,17 @@ public abstract class KonfDretva extends Thread implements Konstante{
      */
     protected long startTime;
     
-    protected long trajanjeSpavanja;
+    /**
+     * Deklaracija intervala
+     * 
+     */
+    protected long interval;
 
+    /**
+     * Konstruktor
+     * 
+     * @param konf
+     */
     public KonfDretva(Konfiguracija konf) {
          this.konf=konf;
     }
@@ -53,28 +63,26 @@ public abstract class KonfDretva extends Thread implements Konstante{
             }
         }
     }
-    
-    @Override
-    public void interrupt() {
-        super.interrupt(); //To change body of generated methods, choose Tools | Templates.
-    }
 
+    /**
+     * Metoda run koja poziva baznu metodu i puni početno vrijeme
+     */
     @Override
     public void run() {
         super.run();
         startTime = System.currentTimeMillis();
     }
 
-    @Override
-    public synchronized void start() {
-        super.start(); //To change body of generated methods, choose Tools | Templates.
-    }   
-
+    /**
+     * Računa trajanje spavanja na temelju početnog vremena i intervala
+     * 
+     * @return spavanje
+     */
     protected long getTrajanjeSpavanja() {
         int i = 1;
         long spavanje = 0;
         do {
-            spavanje = i++ * trajanjeSpavanja -(System.currentTimeMillis() - startTime) / 1000;
+            spavanje = i++ * interval -(System.currentTimeMillis() - startTime) / 1000;
         } while(spavanje < 0);
         
         return spavanje;

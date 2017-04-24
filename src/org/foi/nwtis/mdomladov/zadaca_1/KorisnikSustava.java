@@ -35,10 +35,21 @@ import java.util.regex.Pattern;
  */
 public abstract class KorisnikSustava {
     
+    /**
+     * Poruka koja dolazi kao zahtjev na server
+     */
     protected String poruka;
     
+    /**
+     * Sintaksa koja je dozvoljena u zahtjevu
+     * 
+     */
     protected String sintaksa;
     
+    /**
+     * Matcher koji se koristi za dohvaćanje parametara iz zahtjeva
+     * 
+     */
     protected Matcher m;
     
     /**
@@ -49,18 +60,38 @@ public abstract class KorisnikSustava {
      */    
     public abstract String getZahtjev();    
 
+    /**
+     * dohvaćanje parametra server iz zahtjeva
+     * 
+     * @return url servera
+     */
     public String getServer() {
         return m.group(1);
     }
 
+    /**
+     * dohvaćanje parametra port iz zahtjeva
+     * 
+     * @return broj porta
+     */
     public int getPort() {
         return Integer.parseInt(m.group(2));
     }
 
+    /**
+     * Vraća da li je zahtjev ispravan
+     * 
+     * @return ispravnost zahtjeva
+     */
     public boolean isValid() {
         return m.matches();
     }
     
+    /**
+     * Postavljanje matchera u specijalizaciji klase
+     * 
+     * @param m
+     */
     public void setMatcher(Matcher m){
         this.m = m;
     }

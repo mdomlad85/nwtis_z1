@@ -25,14 +25,30 @@ package org.foi.nwtis.mdomladov.zadaca_1;
  */
 public interface Konstante {
     
+    /**
+     * Konstante za raspon portova
+     * 
+     */
     public interface RasponPortova{
         
+        /**
+         * Minimalni port
+         * 
+         */
         public static final int OD = 8000;
         
+        /**
+         * Maksimalni port
+         * 
+         */
         public static final int DO = 9999;
 
     }
     
+    /**
+     * Konfiguracijski parametri
+     * 
+     */
     public interface KonfiguracijskiParametri {
 
         /**
@@ -86,14 +102,29 @@ public interface Konstante {
      */
     public interface NaziviDretvi {        
     
+        /**
+         * NADZOR_DRETVI
+         */
         public static final String NADZOR_DRETVI = "NadzorDretvi";
         
+        /**
+         * PROVJERA_ADRESA
+         */
         public static final String PROVJERA_ADRESA = "ProvjeraAdresa";
         
+        /**
+         * REZERVNA_DRETVA
+         */
         public static final String REZERVNA_DRETVA = "RezervnaDretva";
         
+        /**
+         * SERIJALIZATOR_EVIDENCIJE
+         */
         public static final String SERIJALIZATOR_EVIDENCIJE = "SerijalizatorEvidencije";
         
+        /**
+         * RADNA_DRETVA
+         */
         public static final String RADNA_DRETVA = "RadnDretva";
     }
     
@@ -102,6 +133,9 @@ public interface Konstante {
      */
     public interface Korisnik {
         
+        /**
+         * LDAP_USERNAME
+         */
         public static final String LDAP_USERNAME = "mdomladov";
     }
     
