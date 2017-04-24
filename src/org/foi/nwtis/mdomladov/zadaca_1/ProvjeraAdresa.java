@@ -7,7 +7,7 @@ package org.foi.nwtis.mdomladov.zadaca_1;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.foi.nwtis.mdomladov.konfiguracije.Konfiguracija;
+import org.foi.nwtis.dkermek.konfiguracije.Konfiguracija;
 
 /**
  * Adresna dretva radi u pravilnim ciklusima prema podacima iz postavki. 
@@ -22,7 +22,7 @@ class ProvjeraAdresa extends KonfDretva {
     public ProvjeraAdresa(Konfiguracija konf) throws NumberFormatException{
         super(konf);
         super.setName(NaziviDretvi.PROVJERA_ADRESA);
-        trajanjeSpavanja = Integer.parseInt(konf.dajPostavku(KonfiguracijskiParametri.INTERVAL_ADRESNE_DRETVE));
+        interval = Integer.parseInt(konf.dajPostavku(KonfiguracijskiParametri.INTERVAL_ADRESNE_DRETVE));
     }
 
     @Override

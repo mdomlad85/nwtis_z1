@@ -61,6 +61,12 @@ public class KorisnikServera {
     
     Integer waitTime;
 
+    /**
+     * Konstruktor
+     * 
+     * @param naredba
+     * @param maxAdresa
+     */
     public KorisnikServera(String naredba, int maxAdresa) {
         naredbe = new HashMap();
         naredbe.put("add", Naredba.ADD);
@@ -71,6 +77,13 @@ public class KorisnikServera {
         this.naredba = naredbe.get(naredba.toLowerCase());
     }
     
+    /**
+     * Aktiviranje akcije
+     * 
+     * @param korisnik
+     * @param param
+     * @return
+     */
     public String aktivirajKomandu(String korisnik, Object param){
         
         String response = null;

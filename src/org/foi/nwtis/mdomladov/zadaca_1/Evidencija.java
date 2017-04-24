@@ -21,48 +21,99 @@ public class Evidencija implements Serializable {
     private String nazivZadnjeDretve;
     private final HashMap<String,ZahtjevAdresa> zahtjeviZaAdrese= new HashMap<>();
 
+    /**
+     * Vraća ukupan broj zahtjeva poslan prema serveru
+     * 
+     * @return ukupnoZahtjeva
+     */
     public int getUkupnoZahtjeva() {
         return ukupnoZahtjeva;
     }
 
+    /**
+     * Vraća broj uspješno obrađenih zahtjeva
+     * 
+     * @return brojUspjesnihZahtjeva
+     */
     public int getBrojUspjesnihZahtjeva() {
         return brojUspjesnihZahtjeva;
-    }
+    }    
 
+    /**
+     * Povećava broj uspješno obrađenih zahtjeva
+     * i naravno broj ukupnih zahtjeva
+     */
     public synchronized void povecajBrojUspjesnihZahtjeva() {
         this.brojUspjesnihZahtjeva++;
         this.ukupnoZahtjeva++;
     }
 
+    /**
+     * Vraća broj prekinutih zahtjeva
+     * 
+     * @return brojPrekinutihZahtjeva
+     */
     public int getBrojPrekinutihZahtjeva() {
         return brojPrekinutihZahtjeva;
-    }
+    }  
 
+    /**
+     * Povećava broj uspješno obrađenih zahtjeva
+     * i naravno broj prekinutih zahtjeva zahtjeva
+     */
     public synchronized void povecajBrojPrekinutihZahtjeva() {
         this.brojPrekinutihZahtjeva++;
         this.ukupnoZahtjeva++;
     }
 
+    /**
+     * Vraća ukupno trajanje svih dretvi u milisekundama
+     * 
+     * @return ukupnoTrajanjeRadaDretvi
+     */
     public long getUkupnoTrajanjeRadaDretvi() {
         return ukupnoTrajanjeRadaDretvi;
     }
 
+    /**
+     * Povećava ukupno trajanje rada dretvi za dodanu vrijednost u milisekundama
+     * @param ukupnoTrajanjeRadaDretve
+     */
     public synchronized void povecajUkupnoTrajanjeRadaDretvi(long ukupnoTrajanjeRadaDretve) {
         this.ukupnoTrajanjeRadaDretvi += ukupnoTrajanjeRadaDretve;
     }
 
+    /**
+     * Dohvaća naziv zadnje dretve
+     * 
+     * @return  nazivZadnjeDretve
+     */
     public String getNazivZadnjeDretve() {
         return nazivZadnjeDretve;
     }
 
+    /**
+     * Postavlja naziv zadnje dretve
+     * 
+     * @param nazivZadnjeDretve
+     */
     public void setNazivZadnjeDretve(String nazivZadnjeDretve) {
         this.nazivZadnjeDretve = nazivZadnjeDretve;
     }
 
+    /**
+     * Vraća kolekciju zahtjeva za adresama (url i korisnik)
+     * @return zahtjeviZaAdrese
+     */
     public HashMap<String, ZahtjevAdresa> getZahtjeviZaAdrese() {
         return zahtjeviZaAdrese;
     }
 
+    /**
+     * Sprema u kolekciju zahtjev
+     * @param url
+     * @param korisnik 
+     */
     public void dodajZahtjevZaAdrese(String url, String korisnik) {
         
             ZahtjevAdresa zahtjev = zahtjeviZaAdrese.get(url);
@@ -80,7 +131,7 @@ public class Evidencija implements Serializable {
 
     /**
      * 
-     * @return izlged ispisa
+     * @return izgled ispisa
      */
     @Override
     public String toString() {
@@ -130,6 +181,11 @@ public class Evidencija implements Serializable {
         sb.append("\n\r");
     }
 
+    /**
+     * Provjera da li postoji tražena adresa
+     * @param url
+     * @return 
+     */
     public boolean postojiAdresa(String url) {
         return zahtjeviZaAdrese.containsKey(url);
     }

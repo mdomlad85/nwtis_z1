@@ -28,46 +28,87 @@ import java.util.HashMap;
  */
 public class KolekcionarDretvi {
     
+    /**
+     *
+     * Deklaracija kolekcije aktivnih dretvi
+     * 
+     */
     private static HashMap<String, KonfDretva> aktivneDretve;   
     
+    /**
+     *
+     * Deklaracija kolekcije radnih dretvi
+     * 
+     */
     protected static ArrayList<RadnaDretva> radneDretve;
     
+    /**
+     * Dohvaćanje aktivnih dretvi tj. dretvi sustava
+     * @param <T>
+     * @param naziv
+     * @return
+     */
     public static <T> T getByName(String naziv){
         initializeCollections();
         return (T)aktivneDretve.get(naziv);
     }
     
-    public static KonfDretva deleteByName(String naziv){
-        initializeCollections();
-        return aktivneDretve.remove(naziv);
-    }    
-    
-    public static boolean removeRadnaDretva(RadnaDretva dretva){
+    /**
+     * Brisanje radne dretve iz kolekcije
+     * 
+     * @param dretva
+     * @return
+     */
+    public static synchronized boolean removeRadnaDretva(RadnaDretva dretva){
         initializeCollections();
         return radneDretve.remove(dretva);
     }
     
-    public static void putAktivnaDretva(String naziv, KonfDretva dretva){
+    /**
+     * Dodavanje aktivne dretve u kolekciju
+     * 
+     * @param naziv
+     * @param dretva
+     */
+    public static synchronized void putAktivnaDretva(String naziv, KonfDretva dretva){
         initializeCollections();
         aktivneDretve.put(naziv, dretva);
     }    
     
-    public static void putRadnaDretva(RadnaDretva dretva){
+    /**
+     * Dodavanje radne dretve u kolekciju
+     * 
+     * @param dretva
+     */
+    public static synchronized void putRadnaDretva(RadnaDretva dretva){
         initializeCollections();
         radneDretve.add(dretva);
     }
     
+    /**
+     * Dohvaćanje aktivne dretve
+     * 
+     * @return
+     */
     public static Collection<KonfDretva> getAktivneDretve(){
         initializeCollections();
         return aktivneDretve.values();
     }
     
+    /**
+     * Dohvaćanje radne dretve
+     * 
+     * @return
+     */
     public static ArrayList<RadnaDretva> getRadneDretve(){
         initializeCollections();
         return radneDretve;
     }
 
-    private static void initializeCollections() {
+    /**
+     * Inicijalizacija kolekcija dretvi
+     */
+    private static synchronized void initializeCollections() {
         if(aktivneDretve == null){
             aktivneDretve = new HashMap<>();
         }

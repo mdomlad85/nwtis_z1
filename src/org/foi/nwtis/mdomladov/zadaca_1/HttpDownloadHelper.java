@@ -32,6 +32,10 @@ import java.net.URL;
 public class HttpDownloadHelper {
     private static final int BUFFER_SIZE = 4096;
 
+    /**
+     * filename - koristi se za pohranu putanje 
+     * do dokumenta koji se downloada na server
+     */
     public static String filename;
 
     /**

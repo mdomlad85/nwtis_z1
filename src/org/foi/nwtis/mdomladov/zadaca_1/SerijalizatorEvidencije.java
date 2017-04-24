@@ -1,6 +1,6 @@
 package org.foi.nwtis.mdomladov.zadaca_1;
 
-import org.foi.nwtis.mdomladov.konfiguracije.Konfiguracija;
+import org.foi.nwtis.dkermek.konfiguracije.Konfiguracija;
 
 /**
  *Sluzi za serijalizaciju podataka. 

@@ -62,7 +62,7 @@ import java.util.logging.Logger;
  * USER korisnik; PASSWD lozinka; STAT;
  * upisan parametar -stat pa provjerava se postoji li korisnik i njemu 
  * pridružena lozinka u datoteci administratora (postavka adminDatoteka). 
- * Ako je u redu korisniku se vraća odgovor OK; LENGTH nnnn<CRLF> i zatim vraća 
+ * Ako je u redu korisniku se vraća odgovor OK; LENGTH nnnn CRLF i zatim vraća 
  * serijalizirane podatke o evidenciji rada. nnnn predstavlja broj byte-ova koje 
  * zauzima serijalizirana evidencija rada. Kada nije u redu, korisnik nije 
  * administrator ili lozinka ne odgovara, vraća se odgovor ERROR 00; tekst 
@@ -87,6 +87,11 @@ public class AdministratorServera {
     
     private Naredba naredba;
 
+    /**
+     * Konstruktor 
+     * @param naredba - naredba koja je pozvana u sjednici
+     * @param evidencijaFilename - putanja do evidencijske datoteke
+     */
     public AdministratorServera(String naredba, String evidencijaFilename) {
         naredbe = new HashMap();
         naredbe.put("start", Naredba.START);
@@ -98,6 +103,11 @@ public class AdministratorServera {
         this.evidencijaFilename = evidencijaFilename;
     }
     
+    /**
+     * akcija aktiviranja komande - vrača odgovor
+     * 
+     * @return response 
+     */
     public String aktivirajKomandu(){
         
         String response = null;
