@@ -70,4 +70,23 @@
     nbproject/build-impl.xml file. 
 
     -->
+    <target name="doc" depends="init" description="generate documentation">
+        <javadoc
+            destdir="docs"
+            author="true"
+            version="true"
+            use="true"
+            encoding="utf-8"
+            windowtitle="Mdomladov Zadaća 1">
+
+            <fileset dir="src" defaultexcludes="yes">
+                <include name="org/foi/nwtis/mdomladov/zadaca_1/**"/>
+            </fileset>
+
+            <doctitle><![CDATA[<h1>Test</h1>]]></doctitle>
+            <bottom><![CDATA[<i>Copyright &#169; NWTiS mdomladov </i>]]></bottom>
+        </javadoc>
+    </target>
+    
+  
 </project>

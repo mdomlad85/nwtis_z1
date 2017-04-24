@@ -7,10 +7,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import org.foi.nwtis.dkermek.konfiguracije.Konfiguracija;
-import org.foi.nwtis.dkermek.konfiguracije.KonfiguracijaApstraktna;
-import org.foi.nwtis.dkermek.konfiguracije.NeispravnaKonfiguracija;
-import org.foi.nwtis.dkermek.konfiguracije.NemaKonfiguracije;
+import org.foi.nwtis.mdomladov.konfiguracije.Konfiguracija;
+import org.foi.nwtis.mdomladov.konfiguracije.KonfiguracijaApstraktna;
+import org.foi.nwtis.mdomladov.konfiguracije.NeispravnaKonfiguracija;
+import org.foi.nwtis.mdomladov.konfiguracije.NemaKonfiguracije;
 
 /**
  * Naredba: ServerSustava -konf datoteka{.txt | .xml | .bin} [-load]
